@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MyItemPickup : MyInteractable
 {
+    public InventoryItem inventoryItem;
     public override void MyInteracted()
     {
         base.MyInteracted();
@@ -13,7 +14,7 @@ public class MyItemPickup : MyInteractable
 
     private void PickUpObject()
     {
-        Debug.Log("This is picking up object");
+        Debug.Log("This is picking up object" + inventoryItem.Name);
         Destroy(gameObject);
     }
 }

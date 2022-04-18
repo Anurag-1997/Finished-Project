@@ -3449,6 +3449,7 @@ MonoBehaviour:
   radius: 3
   player: {fileID: 1134521424}
   interactableObjectTransform: {fileID: 1350297904}
+  inventoryItem: {fileID: 11400000, guid: 862e6bee94f04ad4989e6a0dae18abf7, type: 2}
 --- !u!65 &1350297901
 BoxCollider:
   m_ObjectHideFlags: 0
