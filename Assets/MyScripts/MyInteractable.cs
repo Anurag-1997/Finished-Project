@@ -31,8 +31,12 @@ public class MyInteractable : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(interactableObjectTransform.position, radius);
+        if(interactableObjectTransform==null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(interactableObjectTransform.position, radius);
+        }
+       
 
     }
     public void OnFocused(Transform playerTransform)
