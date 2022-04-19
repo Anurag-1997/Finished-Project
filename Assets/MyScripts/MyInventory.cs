@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MyInventory : MonoBehaviour
 {
+    public delegate void OnInventoryItemChanged();
+    public OnInventoryItemChanged onItemChanged;
     public List<InventoryItem> inventoryItems = new List<InventoryItem>();
     public static MyInventory instance;
     public int inputMaxValue = 10;
@@ -38,6 +40,11 @@ public class MyInventory : MonoBehaviour
                 return false;
             }
             inventoryItems.Add(item);
+            if(onItemChanged != null)
+            {
+                onItemChanged.Invoke();
+            }
+            
 
         }
         return true;
@@ -46,6 +53,10 @@ public class MyInventory : MonoBehaviour
     }
     public void Remove(InventoryItem item)
     {
-        inventoryItems.Remove(item); 
+        inventoryItems.Remove(item);
+        if (onItemChanged != null)
+        {
+            onItemChanged.Invoke();
+        }
     }
 }
