@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MyPlayerController : MonoBehaviour
 {
@@ -22,7 +23,13 @@ public class MyPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetMouseButtonDown(0))//This area to make player move
+		if(EventSystem.current.IsPointerOverGameObject())
+        {
+			Debug.Log("Clicking on UI");
+
+			return;
+        }
+		if (Input.GetMouseButtonDown(1))//This area to make player move
 		{
 			// Shoot out a ray
 			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -40,7 +47,7 @@ public class MyPlayerController : MonoBehaviour
 				
 			}
 		}
-		if (Input.GetMouseButtonDown(1))//This area to make player move
+		if (Input.GetMouseButtonDown(0))//This area to make player move
 		{
 			// Shoot out a ray
 			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
