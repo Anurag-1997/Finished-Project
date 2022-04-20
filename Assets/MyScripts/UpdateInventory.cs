@@ -5,6 +5,7 @@ using UnityEngine;
 public class UpdateInventory : MonoBehaviour
 {
     public MyInventory inventory;
+    public GameObject inventoryUI;
     public Transform itemsPanel;
     MyInventorySlot[] slots;
     // Start is called before the first frame update
@@ -13,12 +14,16 @@ public class UpdateInventory : MonoBehaviour
         inventory = MyInventory.instance;
         inventory.onItemChanged += UpdateUserInterface;
         slots=itemsPanel.GetComponentsInChildren<MyInventorySlot>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Inventory"))
+        {
+            inventoryUI.SetActive(!inventoryUI.activeSelf);
+        }
     }
     void UpdateUserInterface()
     {

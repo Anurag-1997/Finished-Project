@@ -10,6 +10,11 @@ public class InventoryItem : ScriptableObject
     new public Sprite icon = null;
     public bool isDefaultItem = false;
 
+    public virtual void UseItem()
+    {
+        Debug.Log("Using Item" + Name);
+    }
+
 
 
 
