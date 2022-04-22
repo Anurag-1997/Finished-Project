@@ -14,6 +14,7 @@ public class MyEquipment : InventoryItem
         base.UseItem();
         EquipmentManager.instance.AddEquipment(this);
         Debug.Log("Using Equiment" + Name);
+        RemoveFromInventory();
     }
 
 
