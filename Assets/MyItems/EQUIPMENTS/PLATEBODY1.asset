@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 826e07fa99c4db94a8d39ed37bb56699, type: 3}
-  m_Name: Equipment2
+  m_Name: PLATEBODY1
   m_EditorClassIdentifier: 
-  Name: Equipment2
-  icon: {fileID: 21300000, guid: 18e814e5172ef4f7c94dcade1d2cdc72, type: 3}
+  Name: PLATEBODY
+  icon: {fileID: 21300000, guid: 083fa591b8ce94432a62137ec492db83, type: 3}
   isDefaultItem: 0
-  equipmentModifier: 5
-  damageEquipmentModifier: 0
-  slot: 0
+  equipmentModifier: 2
+  damageEquipmentModifier: 1
+  slot: 3
+  mesh: {fileID: 1590810736181423096, guid: 205501b4102055f43b5f78fc272fba89, type: 3}
+  coveredRegion: 02000000

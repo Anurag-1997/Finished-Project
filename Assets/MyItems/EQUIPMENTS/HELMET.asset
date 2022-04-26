@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826e07fa99c4db94a8d39ed37bb56699, type: 3}
+  m_Name: HELMET
+  m_EditorClassIdentifier: 
+  Name: HELMET
+  icon: {fileID: 21300000, guid: 53a51e6c493114b819ff21f349149692, type: 3}
+  isDefaultItem: 0
+  equipmentModifier: 3
+  damageEquipmentModifier: 1
+  slot: 2
+  mesh: {fileID: 4598010643531715517, guid: 0746c412456769b4288673518f906bb9, type: 3}
+  coveredRegion: 02000000

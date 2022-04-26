@@ -9,6 +9,8 @@ public class EquipmentManager : MonoBehaviour
     MyInventory inventory;
     public delegate void OnEquipmentChanged(MyEquipment newItem,MyEquipment oldItem);
     public OnEquipmentChanged onEquipmentChanged;
+    public SkinnedMeshRenderer[] currentMeshes;
+    public SkinnedMeshRenderer targetMesh;
     private void Awake()
     {
         instance = this;
@@ -19,6 +21,7 @@ public class EquipmentManager : MonoBehaviour
     {
         int i = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipment = new MyEquipment[i];
+        currentMeshes = new SkinnedMeshRenderer[i];
         
     }
 
@@ -44,7 +47,13 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChanged.Invoke(newEquipment, oldEquipment);
         }
+        SetEquipmentBlendShapes(newEquipment, 100);
         currentEquipment[index] = newEquipment;
+        SkinnedMeshRenderer newMesh = Instantiate(newEquipment.mesh);
+        newMesh.transform.parent = targetMesh.transform;
+        newMesh.bones = targetMesh.bones;
+        newMesh.rootBone = targetMesh.rootBone;
+        currentMeshes[index]=newMesh;
     }
 
     public void UnEquipment(int slotIndex)
@@ -52,13 +61,26 @@ public class EquipmentManager : MonoBehaviour
         MyEquipment oldEquipment = null;
         if (currentEquipment[slotIndex] != null)
         {
+            if(currentMeshes[slotIndex]!=null)
+            {
+                Destroy(currentMeshes[slotIndex].gameObject);
+            }
             oldEquipment = currentEquipment[slotIndex];
+            SetEquipmentBlendShapes(oldEquipment, 0);
             inventory.Add(oldEquipment);
             currentEquipment[slotIndex] = null;
             if (onEquipmentChanged != null)
             {
                 onEquipmentChanged.Invoke(null, oldEquipment);
             }
+        }
+    }
+
+    public void SetEquipmentBlendShapes(MyEquipment item,int weight)
+    {
+        foreach (EquipmentRegion blendShapeItem in item.coveredRegion)
+        {
+            targetMesh.SetBlendShapeWeight((int)blendShapeItem, weight);
         }
     }
     

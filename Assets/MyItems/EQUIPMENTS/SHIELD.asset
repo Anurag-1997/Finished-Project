@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 826e07fa99c4db94a8d39ed37bb56699, type: 3}
-  m_Name: Equipment1
+  m_Name: SHIELD
   m_EditorClassIdentifier: 
-  Name: Equipment1
-  icon: {fileID: 21300000, guid: 2adef9fa580b542ecb0262099bbc34ab, type: 3}
+  Name: SHIELD
+  icon: {fileID: 21300000, guid: 18e814e5172ef4f7c94dcade1d2cdc72, type: 3}
   isDefaultItem: 0
   equipmentModifier: 5
-  damageEquipmentModifier: 1
-  slot: 1
+  damageEquipmentModifier: 0
+  slot: 0
+  mesh: {fileID: 0}
+  coveredRegion: 

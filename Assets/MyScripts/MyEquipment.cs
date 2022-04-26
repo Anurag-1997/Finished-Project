@@ -8,6 +8,8 @@ public class MyEquipment : InventoryItem
     public int equipmentModifier;
     public int damageEquipmentModifier;
     public EquipmentSlot slot;
+    public SkinnedMeshRenderer mesh;
+    public EquipmentRegion[] coveredRegion; 
 
     public override void UseItem()
     {
@@ -22,5 +24,13 @@ public class MyEquipment : InventoryItem
 public enum EquipmentSlot
 {
     SHIELD,
-    PLATELEGS
+    LEGS,
+    HEAD,
+    CHEST
+}
+public enum EquipmentRegion
+{
+    Legs,
+    Arms,
+    Torso
 }
